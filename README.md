@@ -7,6 +7,7 @@
 * **Actions:** cell long pressure
 * **Image required:** no
 
-## How to integrate
+## [How to integrate](https://developer.4d.com/4d-for-ios/docs/en/custom-listform-templates.html)
 
-[List form templates tutorial](https://developer.4d.com/4d-for-ios/docs/en/custom-listform-templates.html)
+* To use a custom List Form template, the first thing you'll need to do is create a YourDatabase.4dbase/Resources/Mobile/form/list folder.
+* Then drop the list form folder into it.
