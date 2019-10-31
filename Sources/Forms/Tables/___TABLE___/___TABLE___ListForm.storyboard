@@ -131,7 +131,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="TmP-Gk-7ej" kind="show" identifier="showDetails" customClass="___LIST_TO_DETAIL_TRANSITION___" customModule="IBAnimatable" id="gh0-O0-9uL"/>
+                                    <segue destination="TmP-Gk-7ej" kind="show" identifier="showDetails" id="gh0-O0-9uL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
