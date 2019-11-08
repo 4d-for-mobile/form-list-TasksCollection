@@ -36,7 +36,7 @@ class ___TABLE___CustomProgressBarList: UIView {
             }
             percent = (CGFloat(number.doubleValue)) / 100
             setNeedsDisplay()
-            
+
         }
     }
 
@@ -47,7 +47,7 @@ class ___TABLE___CustomProgressBarList: UIView {
         var strokeEnd: CGFloat = percent
         let degrees = 270.0
         let radians = CGFloat(degrees * Double.pi / 180)
-        
+
         layer.transform = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         var size = self.frame.size.width
         if self.frame.size.height < size {
@@ -111,13 +111,13 @@ class ___TABLE___ListForm: ListFormCollection {
     // MARK: Events
     override func onLoad() {
         // Do any additional setup after loading the view.
-        
+
         // SearchBar text style
         let blueColor = UIColor(red: 89/255, green: 77/255, blue: 148/255, alpha: 1.0)
         let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideUISearchBar?.textColor = blueColor
         textFieldInsideUISearchBar?.font = UIFont(name: "HelveticaNeue-Thin", size: 15)
-        
+
         // SearchBar placeholder style
         let textFieldInsideUISearchBarLabel = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
         textFieldInsideUISearchBarLabel?.textColor = blueColor
@@ -147,7 +147,7 @@ class ___TABLE___ListForm: ListFormCollection {
 
 // MARK: Layout
 extension ___TABLE___ListForm: UICollectionViewDelegateFlowLayout {
-    
+
     fileprivate func configureLayout() {
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
@@ -160,5 +160,5 @@ extension ___TABLE___ListForm: UICollectionViewDelegateFlowLayout {
         let collectionViewSize =  collectionView.frame.size
         return CGSize(width: collectionViewSize.width / 2 - 8, height: collectionViewSize.width / 2 + 20)
     }
-    
+
 }
