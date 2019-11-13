@@ -41,8 +41,8 @@ class ___TABLE___CustomProgressBarList: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        let X = self.bounds.midX
-        let Y = self.bounds.midY
+        let midX = self.bounds.midX
+        let midY = self.bounds.midY
         var strokeStart: CGFloat = 0
         var strokeEnd: CGFloat = percent
         let degrees = 270.0
@@ -61,8 +61,11 @@ class ___TABLE___CustomProgressBarList: UIView {
             let radians = CGFloat(degrees * Double.pi / 180)
             layer.transform = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         }
-        let path = UIBezierPath(ovalIn: CGRect(x: (X - (68/2)), y: (Y - (68/2)), width: 120, height: 120)).cgPath
+        let path = UIBezierPath(ovalIn: CGRect(x: (midX - (68/2)), y: (midY - (68/2)), width: 120, height: 120)).cgPath
+
+        // swiftlint:disable:next line_length
         self.addOval(self.bgThickness, path: path, strokeStart: strokeStart, strokeEnd: 1.0, strokeColor: self.bgColor, fillColor: UIColor.clear, shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSize.zero)
+        // swiftlint:disable:next line_length
         self.addOval2(self.thickness, path: path, strokeStart: strokeStart, strokeEnd: strokeEnd, strokeColor: self.barColor, fillColor: UIColor.clear, shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSize.zero)
     }
 
@@ -84,7 +87,7 @@ class ___TABLE___CustomProgressBarList: UIView {
         layer.addSublayer(arc)
     }
 
-    // swiftlint:disable:next function_parameter_count
+    // swiftlint:disable:next line_length
     func addOval2(_ lineWidth: CGFloat, path: CGPath, strokeStart: CGFloat, strokeEnd: CGFloat, strokeColor: UIColor, fillColor: UIColor, shadowRadius: CGFloat, shadowOpacity: Float, shadowOffsset: CGSize) {
         arc2.lineWidth = lineWidth
         arc2.path = path
