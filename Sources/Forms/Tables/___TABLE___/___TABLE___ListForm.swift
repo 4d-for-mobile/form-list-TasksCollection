@@ -36,13 +36,12 @@ class ___TABLE___CustomProgressBarList: UIView {
             }
             percent = (CGFloat(number.doubleValue)) / 100
             setNeedsDisplay()
-
         }
     }
 
     override func draw(_ rect: CGRect) {
-        let midX = self.bounds.midX
-        let midY = self.bounds.midY
+        let x = self.bounds.midX // swiftlint:disable:this identifier_name
+        let y = self.bounds.midY // swiftlint:disable:this identifier_name
         var strokeStart: CGFloat = 0
         var strokeEnd: CGFloat = percent
         let degrees = 270.0
@@ -61,17 +60,38 @@ class ___TABLE___CustomProgressBarList: UIView {
             let radians = CGFloat(degrees * Double.pi / 180)
             layer.transform = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         }
-        let path = UIBezierPath(ovalIn: CGRect(x: (midX - (68/2)), y: (midY - (68/2)), width: 120, height: 120)).cgPath
-
-        // swiftlint:disable:next line_length
-        self.addOval(self.bgThickness, path: path, strokeStart: strokeStart, strokeEnd: 1.0, strokeColor: self.bgColor, fillColor: UIColor.clear, shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSize.zero)
-        // swiftlint:disable:next line_length
-        self.addOval2(self.thickness, path: path, strokeStart: strokeStart, strokeEnd: strokeEnd, strokeColor: self.barColor, fillColor: UIColor.clear, shadowRadius: 0, shadowOpacity: 0, shadowOffsset: CGSize.zero)
+        let ovalSize: CGFloat = 68.0
+        let ovalRect = CGRect(x: x - (ovalSize/2), y: y - (ovalSize/2), width: 120, height: 120)
+        let path = UIBezierPath(ovalIn: ovalRect).cgPath
+        self.addOval(self.bgThickness,
+                     path: path,
+                     strokeStart: strokeStart,
+                     strokeEnd: 1.0,
+                     strokeColor: self.bgColor,
+                     fillColor: UIColor.clear,
+                     shadowRadius: 0,
+                     shadowOpacity: 0,
+                     shadowOffsset: CGSize.zero)
+        self.addOval2(self.thickness,
+                      path: path,
+                      strokeStart: strokeStart,
+                      strokeEnd: strokeEnd,
+                      strokeColor: self.barColor,
+                      fillColor: UIColor.clear,
+                      shadowRadius: 0, shadowOpacity: 0,
+                      shadowOffsset: CGSize.zero)
     }
 
     // swiftlint:disable:next function_parameter_count
-    func addOval(_ lineWidth: CGFloat, path: CGPath, strokeStart: CGFloat, strokeEnd: CGFloat, strokeColor: UIColor, fillColor: UIColor, shadowRadius: CGFloat, shadowOpacity: Float, shadowOffsset: CGSize) {
-
+    func addOval(_ lineWidth: CGFloat,
+                 path: CGPath,
+                 strokeStart: CGFloat,
+                 strokeEnd: CGFloat,
+                 strokeColor: UIColor,
+                 fillColor: UIColor,
+                 shadowRadius: CGFloat,
+                 shadowOpacity: Float,
+                 shadowOffsset: CGSize) {
         arc.lineWidth = lineWidth
         arc.path = path
         arc.strokeStart = strokeStart
@@ -87,8 +107,16 @@ class ___TABLE___CustomProgressBarList: UIView {
         layer.addSublayer(arc)
     }
 
-    // swiftlint:disable:next line_length
-    func addOval2(_ lineWidth: CGFloat, path: CGPath, strokeStart: CGFloat, strokeEnd: CGFloat, strokeColor: UIColor, fillColor: UIColor, shadowRadius: CGFloat, shadowOpacity: Float, shadowOffsset: CGSize) {
+    // swiftlint:disable:next function_parameter_count
+    func addOval2(_ lineWidth: CGFloat,
+                  path: CGPath,
+                  strokeStart: CGFloat,
+                  strokeEnd: CGFloat,
+                  strokeColor: UIColor,
+                  fillColor: UIColor,
+                  shadowRadius: CGFloat,
+                  shadowOpacity: Float,
+                  shadowOffsset: CGSize) {
         arc2.lineWidth = lineWidth
         arc2.path = path
         arc2.strokeStart = strokeStart
@@ -145,7 +173,6 @@ class ___TABLE___ListForm: ListFormCollection {
     override func onDidDisappear(_ animated: Bool) {
         // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
     }
-
 }
 
 // MARK: Layout
@@ -163,5 +190,4 @@ extension ___TABLE___ListForm: UICollectionViewDelegateFlowLayout {
         let collectionViewSize =  collectionView.frame.size
         return CGSize(width: collectionViewSize.width / 2 - 8, height: collectionViewSize.width / 2 + 20)
     }
-
 }
