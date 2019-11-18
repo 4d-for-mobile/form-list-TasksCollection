@@ -8,7 +8,7 @@
 import UIKit
 import QMobileUI
 
-/// Generated list form for ___TABLE___ table.
+/// A progress bar.
 @IBDesignable
 class ___TABLE___CustomProgressBarList: UIView {
 
@@ -132,6 +132,7 @@ class ___TABLE___CustomProgressBarList: UIView {
     }
 }
 
+/// Generated list form for ___TABLE___ table.
 class ___TABLE___ListForm: ListFormCollection {
 
     // Do not edit name or override tableName
