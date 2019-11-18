@@ -143,19 +143,6 @@ class ___TABLE___ListForm: ListFormCollection {
     // MARK: Events
     override func onLoad() {
         // Do any additional setup after loading the view.
-
-        // SearchBar text style
-        let blueColor = UIColor(red: 89/255, green: 77/255, blue: 148/255, alpha: 1.0)
-        let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideUISearchBar?.textColor = blueColor
-        textFieldInsideUISearchBar?.font = UIFont(name: "HelveticaNeue-Thin", size: 15)
-
-        // SearchBar placeholder style
-        let textFieldInsideUISearchBarLabel = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
-        textFieldInsideUISearchBarLabel?.textColor = blueColor
-        textFieldInsideUISearchBarLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 15)
-        self.refreshControl?.tintColor = blueColor
-        searchBar.placeholder = "Search by task name"
     }
 
     override func onWillAppear(_ animated: Bool) {
